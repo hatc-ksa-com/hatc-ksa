@@ -1,4 +1,4 @@
-</head><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,27 +37,35 @@
             white-space: nowrap;
         }
 
-        /* সার্চ বক্স স্টাইল */
+        /* সার্চ বক্স স্টাইল (সাইজ ছোট করা হয়েছে) */
         .search-box {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 3px;
+            gap: 2px;
         }
 
+        /* ইনপুট বক্সের সাইজ ও ফন্ট ছোট করা হয়েছে */
         input[type="text"] {
-            padding: 2px 5px;
+            padding: 1px 3px;
             border: 1px solid #777;
-            font-size: 10px;
-            width: 120px;
+            font-size: 9px;
+            width: 80px;
+            height: 14px;
+        }
+
+        /* লেবেল ও বাটনের ফন্ট এবং প্যাডিং ছোট করা হয়েছে */
+        .search-box label {
+            font-size: 9px;
         }
 
         button {
-            padding: 2px 8px;
+            padding: 1px 5px;
             border: 1px solid #777;
             background-color: #f0f0f0;
             cursor: pointer;
-            font-size: 9px;
+            font-size: 8px;
+            height: 18px;
         }
 
         button:hover {
@@ -144,7 +152,7 @@
             margin-top: 15px;
         }
     </style>
-
+</head>
 <body>
 
 <div class="container">
