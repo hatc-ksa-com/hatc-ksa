@@ -31,13 +31,13 @@
 
         /* লোগোর নিচের এক লাইনের লেখা */
         .instruction-text {
-            font-size: 7px;
+            font-size: 6px;
             margin-top: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             white-space: nowrap;
         }
 
-        /* সার্চ বক্স স্টাইল (সাইজ ছোট করা হয়েছে) */
+        /* মূল ওয়েবসাইটের মতো হুবহু সার্চ বক্স লেআউট */
         .search-box {
             display: flex;
             justify-content: center;
@@ -45,27 +45,29 @@
             gap: 2px;
         }
 
-        /* ইনপুট বক্সের সাইজ ও ফন্ট ছোট করা হয়েছে */
-        input[type="text"] {
-            padding: 1px 3px;
-            border: 1px solid #777;
-            font-size: 9px;
-            width: 80px;
-            height: 14px;
+        .search-box label {
+            font-size: 8px;
+            font-family: 'Times New Roman', Times, serif;
         }
 
-        /* লেবেল ও বাটনের ফন্ট এবং প্যাডিং ছোট করা হয়েছে */
-        .search-box label {
+        input[type="text"] {
+            padding: 0px 2px;
+            border: 1px solid #777;
             font-size: 9px;
+            width: 140px;
+            height: 12px;
+            box-sizing: border-box;
         }
 
         button {
-            padding: 1px 5px;
+            padding: 0px 3px;
             border: 1px solid #777;
             background-color: #f0f0f0;
             cursor: pointer;
-            font-size: 8px;
-            height: 18px;
+            font-size: 7px;
+            height: 12px;
+            line-height: 10px;
+            box-sizing: border-box;
         }
 
         button:hover {
@@ -148,8 +150,8 @@
 
         .error-msg {
             color: red;
-            font-size: 13px;
-            margin-top: 15px;
+            font-size: 11px;
+            margin-top: 10px;
         }
     </style>
 </head>
