@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
 
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* হেডার ইমেজ স্টাইল */
+        .header-img {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* সার্চ বক্স স্টাইল */
+        .search-section {
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            padding: 2px 5px;
+            border: 1px solid #777;
+            font-size: 13px;
+            width: 160px;
+        }
+
+        button {
+            padding: 2px 8px;
+            border: 1px solid #777;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* রেজাল্ট সেকশন */
+        .result-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+
+        .top-bar a {
+            color: purple;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* তৃতীয় ছবির মতো টেবিল স্টাইল */
+        .card-container {
+            border: 1px solid #888;
+            border-radius: 15px;
+            padding: 15px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .cert-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .cert-table td {
+            padding: 3px 5px;
+            vertical-align: top;
+        }
+
+        .cert-table td.label {
+            width: 35%;
+            color: #333;
+        }
+
+        .cert-table td.value {
+            width: 65%;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 1px solid #bbb;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 15px;
+            border-top: 1px solid #aaa;
+            padding-top: 10px;
+        }
+
+        .contact-info a {
+            color: blue;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ২য় ছবি (হেডার ও সার্চের বিবরণ) -->
+    <img src="header.jpg" alt="Header Banner" class="header-img">
+
+    <!-- ১ম ছবি অনুযায়ী সার্চ ফর্ম -->
+    <div id="searchContainer" class="search-section">
+        <div class="search-box">
+            <label for="cNo">C.No</label>
+            <input type="text" id="cNo" name="cNo">
+            <button onclick="checkCertificate()">check certificate</button>
+        </div>
+        <p id="errorMsg" class="error-msg"></p>
+    </div>
+
+    <!-- ৩য় ছবি অনুযায়ী রেজাল্ট সেকশন -->
+    <div id="resultContainer" class="result-section">
+        <div class="top-bar">
+            <span>Details Below:</span>
+            <a onclick="resetSearch()">Back To Home Page</a>
+        </div>
+
+        <div class="card-container">
+            <table class="cert-table">
+                <tr>
+                    <td class="label">C. No</td>
+                    <td class="value" id="resCertNo"></td>
+                </tr>
+                <tr>
+                    <td class="label">Name</td>
+                    <td class="value" id="resName"></td>
+                </tr>
+                <tr>
+                    <td class="label">ID/PP NO</td>
+                    <td class="value" id="resIdNo"></td>
+                </tr>
+                <tr>
+                    <td class="label">Date of Birth</td>
+                    <td class="value" id="resDob"></td>
+                </tr>
+                <tr>
+                    <td class="label">Course Title</td>
+                    <td class="value" id="resCourse"></td>
+                </tr>
+                <tr>
+                    <td class="label">Course Type</td>
+                    <td class="value" id="resType"></td>
+                </tr>
+                <tr>
+                    <td class="label">Duration</td>
+                    <td class="value" id="resDuration"></td>
+                </tr>
+                <tr>
+                    <td class="label">Nationality</td>
+                    <td class="value" id="resNationality"></td>
+                </tr>
+                <tr>
+                    <td class="label">Company</td>
+                    <td class="value" id="resCompany"></td>
+                </tr>
+                <tr>
+                    <td class="label">Certificate Type</td>
+                    <td class="value" id="resCertType"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="footer-note">
+            The above certificate is genuine, and issued by Human Assets Training Institute
+        </div>
+
+        <div class="contact-info">
+            <strong>Contact us:</strong><br>
+            Tel: +966 13 849-3360 Fax: +966 13 849-3404<br>
+            E-Mail : <a href="mailto:info@hatc-ksa.com">info@hatc-ksa.com</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // এখানে নতুন নতুন সার্টিফিকেট ডাটা যুক্ত করতে পারবেন
+    const database = {
+        "121150": {
+            certNo: "121150",
+            name: "IJHAR RAHMAT HUSSAIN",
+            idNo: "2508856198",
+            dob: "/",
+            course: "FLAG MAN",
+            type: "Health & Safety",
+            duration: "22-Jan-2026 To 21-Jan-2028",
+            nationality: "INDIAN",
+            company: "NESMA & PARTNERS",
+            certType: "HAT"
+        },
+        "27185": {
+            certNo: "27185",
+            name: "SAMPLE USER 1",
+            idNo: "1234567890",
+            dob: "01-01-1990",
+            course: "SAFETY OFFICER",
+            type: "Health & Safety",
+            duration: "01-Jan-2026 To 01-Jan-2028",
+            nationality: "BANGLADESHI",
+            company: "ARAMCO",
+            certType: "HAT"
+        }
+    };
+
+    function checkCertificate() {
+        const inputVal = document.getElementById("cNo").value.trim();
+        const errorMsg = document.getElementById("errorMsg");
+        
+        if (database[inputVal]) {
+            const data = database[inputVal];
+            
+            document.getElementById("resCertNo").innerText = data.certNo;
+            document.getElementById("resName").innerText = data.name;
+            document.getElementById("resIdNo").innerText = data.idNo;
+            document.getElementById("resDob").innerText = data.dob;
+            document.getElementById("resCourse").innerText = data.course;
+            document.getElementById("resType").innerText = data.type;
+            document.getElementById("resDuration").innerText = data.duration;
+            document.getElementById("resNationality").innerText = data.nationality;
+            document.getElementById("resCompany").innerText = data.company;
+            document.getElementById("resCertType").innerText = data.certType;
+
+            document.getElementById("searchContainer").style.display = "none";
+            document.getElementById("resultContainer").style.display = "block";
+            errorMsg.innerText = "";
+        } else {
+            errorMsg.innerText = "Invalid Certificate Number! Please try again.";
+        }
+    }
+
+    function resetSearch() {
+        document.getElementById("searchContainer").style.display = "block";
+        document.getElementById("resultContainer").style.display = "none";
+        document.getElementById("cNo").value = "";
+    }
+</script>
+
+</body>
+                                                                    </html>
+                                                                    
