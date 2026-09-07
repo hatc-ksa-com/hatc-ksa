@@ -29,15 +29,18 @@
             margin: 0 auto;
         }
 
-        /* লোগোর নিচের এক লাইনের লেখা */
+        /* লোগোর নিচে চিকন দাগ এবং বোল্ড ও ছোট সাইজের লেখা */
         .instruction-text {
-            font-size: 8px;
-            margin-top: 10px;
-            margin-bottom: 8px;
+            font-size: 6.5px;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-top: 5px;
+            border-top: 1px solid #777; /* উপরে চিকন দাগ */
             white-space: nowrap;
         }
 
-        /* মূল ওয়েবসাইটের মতো হুবহু সার্চ বক্স লেআউট */
+        /* সার্চ বক্স লেআউট */
         .search-box {
             display: flex;
             justify-content: center;
@@ -46,37 +49,35 @@
         }
 
         .search-box label {
-            font-size: 8px;
+            font-size: 7px;
             font-family: 'Times New Roman', Times, serif;
         }
 
-        /* মোবাইলের ডিফল্ট আউটলাইন বন্ধ ও প্যাডিং ঠিক করা */
         input[type="text"] {
-            padding: 1px 3px;
+            padding: 0px 2px;
             border: 1px solid #777;
-            font-size: 10px;
-            width: 130px;
-            height: 18px;
-            border-radius: 0;            /* কোণা গোলাকার হওয়া বন্ধ করবে */
-            outline: none;               /* টাইপ করার সময় কালচে বর্ডার হওয়া বন্ধ করবে */
-            -webkit-appearance: none;    /* মোবাইলের ক্রোম ব্রাউজার স্টাইল ক্লিয়ার করবে */
+            font-size: 8px;
+            width: 110px;
+            height: 12px;
+            border-radius: 0;
+            outline: none;
+            -webkit-appearance: none;
             box-sizing: border-box;
         }
 
-        /* টাইপ করার সময় বর্ডার একই থাকবে */
         input[type="text"]:focus {
             border: 1px solid #777;
             outline: none;
         }
 
         button {
-            padding: 1px 4px;
+            padding: 0px 2px;
             border: 1px solid #777;
             background-color: #f0f0f0;
             cursor: pointer;
-            font-size: 8px;
-            height: 18px;
-            line-height: 14px;
+            font-size: 6.5px;
+            height: 12px;
+            line-height: 10px;
             border-radius: 0;
             box-sizing: border-box;
         }
@@ -161,7 +162,7 @@
 
         .error-msg {
             color: red;
-            font-size: 11px;
+            font-size: 10px;
             margin-top: 10px;
         }
     </style>
@@ -174,7 +175,7 @@
 
     <!-- সার্চ অংশ -->
     <div id="searchContainer">
-        <!-- লোগোর নিচে এক লাইনের লেখা -->
+        <!-- লোগোর নিচে এক লাইনের বোল্ড লেখা -->
         <p class="instruction-text">This search engine will help you to find out whether the certificate is true or not, please enter C. No (Certificate No).</p>
         
         <div class="search-box">
@@ -250,7 +251,7 @@
 </div>
 
 <script>
-    // data.json ফাইল থেকে ডাটা ফেচ (Fetch) করার ফাংশন
+    // data.json ফাইল থেকে ডাটা ফেচ করার ফাংশন
     async function checkCertificate() {
         const inputVal = document.getElementById("cNo").value.trim();
         const errorMsg = document.getElementById("errorMsg");
@@ -261,7 +262,6 @@
         }
 
         try {
-            // data.json ফাইল থেকে ডাটা পড়া
             const response = await fetch('data.json');
             const database = await response.json();
 
