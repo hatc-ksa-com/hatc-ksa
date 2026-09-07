@@ -29,16 +29,19 @@
             margin: 0 auto;
         }
 
-        /* লোগোর নিচের চিকন দাগ ও নরমাল অন-লাইন টেক্সট */
+        /* এক লাইনে নিখুঁতভাবে ফিট হওয়ার জন্য রেসপনসিভ ছোট ফন্ট */
         .instruction-text {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 7px;
-            font-weight: normal; /* বোল্ড তুলে দেওয়া হয়েছে */
+            font-size: 5.8px;
+            font-size: clamp(4.5px, 1.8vw, 7.5px); /* স্ক্রিন ছোট হলেও ১ লাইনেই থাকবে */
+            font-weight: normal;
             margin-top: 5px;
             margin-bottom: 5px;
             padding-top: 4px;
             border-top: 1px solid #777;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             color: #000;
         }
 
@@ -87,7 +90,7 @@
             box-sizing: border-box;
         }
 
-        /* রেজাল্ট সেকশন (ক্লাসিক 'Times New Roman' ফন্ট) */
+        /* রেজাল্ট সেকশন */
         .result-section {
             display: none;
             margin-top: 15px;
@@ -111,7 +114,6 @@
             font-weight: normal;
         }
 
-        /* অরিজিনাল ছবির মতো কার্ড ও ফন্ট স্টাইলিং */
         .card-container {
             border: 1px solid #888;
             border-radius: 12px;
@@ -135,12 +137,12 @@
         .cert-table td.label {
             width: 38%;
             color: #000;
-            font-weight: normal; /* মূল ছবির মতো নরমাল */
+            font-weight: normal;
         }
 
         .cert-table td.value {
             width: 62%;
-            font-weight: normal; /* টাইপ বা ডাটা বোল্ড তুলে নরমাল করা হয়েছে */
+            font-weight: normal;
             color: #000;
             border-bottom: 1px solid #bbb;
         }
