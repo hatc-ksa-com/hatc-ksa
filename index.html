@@ -10,17 +10,17 @@
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            color: #333;
+            color: #000;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 10px;
+            padding: 5px 10px;
             text-align: center;
         }
 
-        /* শুধু হেডার লোগো পিকচার */
+        /* হেডার লোগো */
         .header-img {
             width: 100%;
             max-width: 850px;
@@ -29,15 +29,17 @@
             margin: 0 auto;
         }
 
-        /* লোগোর নিচে চিকন দাগ এবং বোল্ড ও ছোট সাইজের লেখা */
+        /* লোগোর নিচের চিকন দাগ ও নরমাল অন-লাইন টেক্সট */
         .instruction-text {
-            font-size: 6.5px;
-            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 8px;
+            font-weight: normal; /* বোল্ড তুলে দেওয়া হয়েছে */
             margin-top: 5px;
             margin-bottom: 5px;
-            padding-top: 5px;
-            border-top: 1px solid #777; /* উপরে চিকন দাগ */
+            padding-top: 4px;
+            border-top: 1px solid #777;
             white-space: nowrap;
+            color: #000;
         }
 
         /* সার্চ বক্স লেআউট */
@@ -49,14 +51,16 @@
         }
 
         .search-box label {
-            font-size: 7px;
+            font-size: 7.5px;
             font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
         }
 
         input[type="text"] {
             padding: 0px 2px;
             border: 1px solid #777;
             font-size: 8px;
+            font-weight: normal;
             width: 110px;
             height: 12px;
             border-radius: 0;
@@ -76,44 +80,43 @@
             background-color: #f0f0f0;
             cursor: pointer;
             font-size: 6.5px;
+            font-weight: normal;
             height: 12px;
             line-height: 10px;
             border-radius: 0;
             box-sizing: border-box;
         }
 
-        button:hover {
-            background-color: #e0e0e0;
-        }
-
-        /* রেজাল্ট সেকশন */
+        /* রেজাল্ট সেকশন (ক্লাসিক 'Times New Roman' ফন্ট) */
         .result-section {
             display: none;
-            margin-top: 20px;
+            margin-top: 15px;
             text-align: left;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .top-bar {
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
-            margin-bottom: 10px;
-            padding: 0 10px;
+            margin-bottom: 8px;
+            padding: 0 5px;
         }
 
         .top-bar a {
             color: purple;
             text-decoration: underline;
             cursor: pointer;
+            font-weight: normal;
         }
 
-        /* রেজাল্ট কার্ড টেবিল স্টাইল */
+        /* অরিজিনাল ছবির মতো কার্ড ও ফন্ট স্টাইলিং */
         .card-container {
             border: 1px solid #888;
-            border-radius: 15px;
-            padding: 15px 20px;
-            max-width: 500px;
+            border-radius: 12px;
+            padding: 10px 15px;
+            max-width: 420px;
             margin: 0 auto;
             background-color: #fff;
         }
@@ -121,61 +124,64 @@
         .cert-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         .cert-table td {
-            padding: 3px 5px;
+            padding: 2px 3px;
             vertical-align: top;
         }
 
         .cert-table td.label {
-            width: 35%;
-            color: #333;
+            width: 38%;
+            color: #000;
+            font-weight: normal; /* মূল ছবির মতো নরমাল */
         }
 
         .cert-table td.value {
-            width: 65%;
-            font-weight: bold;
+            width: 62%;
+            font-weight: normal; /* টাইপ বা ডাটা বোল্ড তুলে নরমাল করা হয়েছে */
             color: #000;
             border-bottom: 1px solid #bbb;
         }
 
         .footer-note {
             text-align: center;
-            font-size: 11px;
-            margin-top: 15px;
-            color: #333;
+            font-size: 9px;
+            font-weight: normal;
+            margin-top: 10px;
+            color: #000;
         }
 
         .contact-info {
             text-align: center;
-            font-size: 11px;
-            margin-top: 15px;
+            font-size: 9px;
+            font-weight: normal;
+            margin-top: 10px;
             border-top: 1px solid #aaa;
-            padding-top: 10px;
+            padding-top: 8px;
         }
 
         .contact-info a {
             color: blue;
+            text-decoration: underline;
         }
 
         .error-msg {
             color: red;
             font-size: 10px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- শুধু হেডার লোগোর ছবিটি এখানে থাকবে -->
+    <!-- হেডার ছবি -->
     <img src="header.jpg" alt="Header Banner" class="header-img">
 
-    <!-- সার্চ অংশ -->
+    <!-- সার্চ পার্ট -->
     <div id="searchContainer">
-        <!-- লোগোর নিচে এক লাইনের বোল্ড লেখা -->
         <p class="instruction-text">This search engine will help you to find out whether the certificate is true or not, please enter C. No (Certificate No).</p>
         
         <div class="search-box">
@@ -186,7 +192,7 @@
         <p id="errorMsg" class="error-msg"></p>
     </div>
 
-    <!-- রেজাল্ট প্রদর্শন অংশ -->
+    <!-- রেজাল্ট পার্ট -->
     <div id="resultContainer" class="result-section">
         <div class="top-bar">
             <span>Details Below:</span>
@@ -251,7 +257,6 @@
 </div>
 
 <script>
-    // data.json ফাইল থেকে ডাটা ফেচ করার ফাংশন
     async function checkCertificate() {
         const inputVal = document.getElementById("cNo").value.trim();
         const errorMsg = document.getElementById("errorMsg");
