@@ -31,7 +31,7 @@
 
         /* লোগোর নিচের এক লাইনের লেখা */
         .instruction-text {
-            font-size: 6px;
+            font-size: 8px;
             margin-top: 10px;
             margin-bottom: 8px;
             white-space: nowrap;
@@ -50,23 +50,34 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
+        /* মোবাইলের ডিফল্ট আউটলাইন বন্ধ ও প্যাডিং ঠিক করা */
         input[type="text"] {
-            padding: 0px 2px;
+            padding: 1px 3px;
             border: 1px solid #777;
-            font-size: 9px;
-            width: 140px;
-            height: 12px;
+            font-size: 10px;
+            width: 130px;
+            height: 18px;
+            border-radius: 0;            /* কোণা গোলাকার হওয়া বন্ধ করবে */
+            outline: none;               /* টাইপ করার সময় কালচে বর্ডার হওয়া বন্ধ করবে */
+            -webkit-appearance: none;    /* মোবাইলের ক্রোম ব্রাউজার স্টাইল ক্লিয়ার করবে */
             box-sizing: border-box;
         }
 
+        /* টাইপ করার সময় বর্ডার একই থাকবে */
+        input[type="text"]:focus {
+            border: 1px solid #777;
+            outline: none;
+        }
+
         button {
-            padding: 0px 3px;
+            padding: 1px 4px;
             border: 1px solid #777;
             background-color: #f0f0f0;
             cursor: pointer;
-            font-size: 7px;
-            height: 12px;
-            line-height: 10px;
+            font-size: 8px;
+            height: 18px;
+            line-height: 14px;
+            border-radius: 0;
             box-sizing: border-box;
         }
 
