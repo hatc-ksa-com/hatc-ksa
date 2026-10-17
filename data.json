@@ -22,6 +22,7 @@
     "nationality": "BANGLADESHI",
     "company": "INDIVIDUAL",
     "certType": "HAT"
+  },
    "121165": {
     "certNo": "121165",
     "name": "MD KHIRUL ISLAM",
@@ -33,7 +34,8 @@
     "nationality": "BANGLADESHI",
     "company": "INDIVIDUAL",
     "certType": "HAT"
-  "121498": {
+  },
+   "121498": {
     "certNo": "121498",
     "name": "MD KHIRUL ISLAM",
     "idNo": "2643226745",
